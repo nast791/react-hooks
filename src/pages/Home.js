@@ -1,19 +1,21 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Search from "../components/Search";
 import Card from "../components/Card";
+import {GithubContext} from "../context/github/GithubContext";
 
 const Home = () => {
-  const cards = [1, 2, 3, 4];
+  const {loading, users} = useContext(GithubContext);
   
   return (
     <React.Fragment>
       <Search/>
       <div className="row">
         {
-          cards.map((item) => {
+        loading ? <p className="text-center">Загрузка...</p>
+          : users.map((user) => {
             return(
-              <div className="col-sm-4 mb-4" key={item}>
-                <Card/>
+              <div className="col-sm-4 mb-4" key={user.id}>
+                <Card user={user}/>
               </div>
             );
           })
