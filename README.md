@@ -1,2 +1,2 @@
-# crypto
-Финальный проект на курсе Learn Javascript
+# react-hooks
+Тестовый проект по курсу
